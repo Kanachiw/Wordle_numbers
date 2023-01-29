@@ -1,4 +1,4 @@
-                                                              Project Lock Box
+                                                         Project Lock Box
 In this project, you will write a complete program that allows the client to open a lock box used for storage of precious belongings. The Lock Box System has the following features:
 
 The client is prompted to enter two integers: the combination lock code length n, and the range of digits m.
