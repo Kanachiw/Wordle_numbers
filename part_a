@@ -1,0 +1,90 @@
+#include <iostream>
+#include <vector>
+#ifndef LOCKBOX_CLASS
+#define LOCKBOX_CLASS
+
+#include <iomanip> 
+#include <stdexcept>
+
+using namespace std;
+
+class LockBox {
+
+  private:
+
+    vector<int> code;
+
+  public:
+
+    LockBox(int n, int m);
+
+    void LockCode(); 
+
+    void guess();
+
+    LockBox correctLocation(const LockBox &guess);
+
+    incorrectLocation(const LockBox &guess);
+
+    int getCode () const;
+};
+
+LockBox::LockBox(int n, int m) : length(n), digits(m) {
+
+  LockCode();
+  
+}
+
+void LockCode(int code, int n, int m) {
+  
+    vector<int> code; 
+  
+    for (int i = 0; i < n; i++){
+  
+      <code> = rand() % m-1 ; 
+    }
+}
+
+void guess() {
+//input guess and store as vector
+  vector<int> guess; 
+  
+  cin >> guess; 
+
+  while (sizeOf(guess) != sizeOf(code) {
+    cout << "error: number of digits in guess does not equal number of digis in lock code" << endl;
+    cout << "please try again" << endl;
+      
+    cin >> guess;
+  }
+}
+LockBox::LockBox correctLocation(const LockBox &guess) {
+
+  count1 = // number of correct digits 
+
+  for (int i = 0; i < n; i++) {
+    if (guess != code) {
+      
+    }
+    return count1;
+  }
+}
+
+LockBox::LockBox incorrectLocation(const LockBox &guess) {
+
+  count2 = //number of correct digits in wrong location
+
+  for (int i = 0, i < n; i++) {
+    if (guess != code) {
+      
+    }
+    return count2; 
+  } 
+}
+
+
+int main () {
+
+
+  
+}
