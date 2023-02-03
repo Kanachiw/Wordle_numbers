@@ -1,0 +1,112 @@
+#include <iostream> 
+#include <vector> 
+#include <iomanip>
+
+using namespace std; 
+
+class ClientFeedback {
+
+  private: 
+    vector<int> numberCorrect;
+    vector<int> numberIncorrect;
+    int guess; 
+
+  public:
+    ClientFeedback (vector<int> numberCorrect, vector<int> numberIncorrect);
+
+    void setGuess();
+
+    int getGuess(int guess); 
+
+    bool operator == (ClientFeedback& rhs); 
+
+  };
+
+ClientFeedback::ClientFeedback(vector<int> numberCorrect, vector<int> numberIncorrect) {
+  
+}
+
+void ClientFeedback::setGuess() {
+  int guess; 
+  cin >> guess; 
+}
+
+int ClientFeedback::getGuess(int guess) {
+  return guess;
+}
+//to compare responses and return true if they're equal
+bool operator == (ClientFeedback& rhs) {
+  return guess == rhs.guess; 
+}
+//prints a guess response
+ostream& operator << (ostream& ostr, ClientFeedback& guess) {
+  ostr << guess << endl; 
+}
+
+class SmartClient {
+
+  private:
+    const LockBox& guess; 
+    int length, digits;  
+
+  public:  
+    SmartClient (int n, int m, const LockBox& guess);
+
+    SmartClient (int n = 5, int m=10); 
+
+    int printCode(); 
+
+    int clientGuess(const LockBox& guess);
+
+    int getFeedback(ClientFeedback& guess);
+
+    bool isOpened(ClientFeedback& guess); 
+
+    int openLockBox(ClientFeedback& guess); 
+
+};
+//constructor that is passed n and m that are read from a keyboard
+SmartClient::SmartClient (int n, int m, const LockBox& guess) : length(n), digits(m) {
+  
+}
+//passed no parameters and sets n to 5 and m to 10 
+SmartClient::SmartClient (int n=5, int m=10) : length(n), digits(m) {
+  
+}
+//print secret code
+int SmartClient::printCode() {
+  cout << item; 
+}
+//reads a guess from the keyboard and returns a lockbox object //representing the guess
+int SmartClient::clientGuess(const LockBox& guess) {
+  cin >> guess; 
+}
+//function is passed a guess code and returns a client feedback object 
+int SmartClient::getFeedback (ClientFeedback& guess) {
+  return guess; 
+}
+//determines if the guess is correct 
+bool SmartClient::isOpened(ClientFeedback& guess) {
+  if (guess==item) {
+    return true;
+}
+//initializes a random code and prints it to the screen
+//gets a guess fron the user and prnts a response until either the lock disables 
+//or the client opens the box
+int SmartClient::openLockBox(ClientFeedback& guess) {
+
+  srand(time(0));
+  for (int i = 0; i < length; i++) {
+    int item = rand() % digits; 
+    openlockbox.push_back(item); 
+    cout << item << endl; 
+  }
+
+  cin >> guess; 
+  
+  while (guess!=item) {
+    cin guess; 
+    cout << guess; 
+  }
+
+}
