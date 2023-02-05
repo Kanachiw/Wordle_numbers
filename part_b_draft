@@ -1,112 +1,158 @@
 #include <iostream> 
 #include <vector> 
 #include <iomanip>
+#include <stdexcept>
 
 using namespace std; 
 
 class ClientFeedback {
 
   private: 
-    vector<int> numberCorrect;
-    vector<int> numberIncorrect;
+    int numberCorrect;
+    int numberIncorrect;
     int guess; 
 
   public:
-    ClientFeedback (vector<int> numberCorrect, vector<int> numberIncorrect);
+    ClientFeedback (int r=0, int w=0);
 
-    void setGuess();
+    void setNumberCorrect(SmartClient& guess, SmartClient& secretCode); 
 
-    int getGuess(int guess); 
+    int getNumberCorrect(int numberCorrect); 
+
+    void setNumberIncorrect(SmartClient& guess, SmartClient& secretCode); 
+
+    int getNumberIncorrect(int numberIncorrect);
 
     bool operator == (ClientFeedback& rhs); 
 
+    friend ostream& operator << (ostream& ostr, ClientFeedback& response);
+
   };
 
-ClientFeedback::ClientFeedback(vector<int> numberCorrect, vector<int> numberIncorrect) {
+ClientFeedback::ClientFeedback(int r, int w) : numberCorrect(r), numberIncorrect(w) {
   
 }
-
-void ClientFeedback::setGuess() {
-  int guess; 
+//set number correct response to guess
+void ClientFeedback::setNumberCorrect(SmartClient& guess, SmartClient& secretCode) {
+  int numberCorrect; 
   cin >> guess; 
+  //iterate through guess and count number of digits in correct location
+  for (int i=0; i < sizeof(guess); i++) {
+    if (secretCode[i] == guess[i]) {
+      numberCorrect++;
+    }
+  }
 }
-
-int ClientFeedback::getGuess(int guess) {
-  return guess;
+//return number correct
+int ClientFeedback::getNumberCorrect(int numberCorrect) {
+  return numberCorrect;
+}
+//set number incorrect response to a guess 
+void ClientFeedback::setNumberIncorrect(SmartClient& guess, SmartClient& secretCode) {
+  
+  int numberIncorrect;
+  //iterate through guess and count number of digits in incorrect location
+  for (int i=0; i < sizeof(guess); i++) {
+    if (secretCode[i] != guess[i]) {
+      numberIncorrect++;
+    }
+  }
+}
+//return number incorrect
+int ClientFeedback::getNumberIncorrect(int numberIncorrect) {
+  return numberIncorrect; 
 }
 //to compare responses and return true if they're equal
-bool operator == (ClientFeedback& rhs) {
-  return guess == rhs.guess; 
+bool ClientFeedback::operator == (ClientFeedback& rhs) {
+  return numberCorrect == rhs.numberCorrect && numberIncorrect == rhs.numberIncorrect;  
 }
 //prints a guess response
-ostream& operator << (ostream& ostr, ClientFeedback& guess) {
-  ostr << guess << endl; 
+ostream& operator << (ostream& ostr, ClientFeedback& response) {
+  ostr << "Number of correct digits: " << response.numberCorrect << endl << "Number of incorrect digits: " << response.numberIncorrect << endl; 
 }
 
 class SmartClient {
 
   private:
-    const LockBox& guess; 
+    class LockBox; 
     int length, digits;  
 
   public:  
-    SmartClient (int n, int m, const LockBox& guess);
+    SmartClient (int n, int m, class LockBox);
 
     SmartClient (int n = 5, int m=10); 
 
-    int printCode(); 
+    int printCode(int secretCode); 
 
-    int clientGuess(const LockBox& guess);
+    int clientGuess();
 
-    int getFeedback(ClientFeedback& guess);
+    int getFeedback(ClientFeedback& numberCorrect, ClientFeedback& numberIncorrect);
 
-    bool isOpened(ClientFeedback& guess); 
+    bool isOpened(ClientFeedback& n, ClientFeedback& numberCorrect, ClientFeedback& numberIncorrect); 
 
-    int openLockBox(ClientFeedback& guess); 
+    int openLockBox(int secretCode = 0); 
 
 };
 //constructor that is passed n and m that are read from a keyboard
-SmartClient::SmartClient (int n, int m, const LockBox& guess) : length(n), digits(m) {
+SmartClient::SmartClient (int n, int m, class LockBox) : length(n), digits(m) {
   
 }
 //passed no parameters and sets n to 5 and m to 10 
-SmartClient::SmartClient (int n=5, int m=10) : length(n), digits(m) {
+SmartClient::SmartClient (int n, int m) : length(n), digits(m) {
   
 }
 //print secret code
-int SmartClient::printCode() {
-  cout << item; 
+int SmartClient::printCode(int secretCode) {
+  cout << secretCode; 
 }
 //reads a guess from the keyboard and returns a lockbox object //representing the guess
-int SmartClient::clientGuess(const LockBox& guess) {
-  cin >> guess; 
+int SmartClient::clientGuess() {
+  vector <int> guess; 
+  int num; 
+
+  for (int i=0; i < length; i++) {
+    cout << "Enter digit " << i << " from 0: [" <<length<<"-1]" << endl;
+    cin >> num;
+    if (num > (digits-1)) 
+    {
+      throw "range error";
+    }
+    guess.push_back(num);
+  }
+  
+  return correctLocation;
+  return incorrectLocation; 
 }
 //function is passed a guess code and returns a client feedback object 
-int SmartClient::getFeedback (ClientFeedback& guess) {
-  return guess; 
+int SmartClient::getFeedback(ClientFeedback& numberCorrect, ClientFeedback& numberIncorrect) {
+  getNumberCorrect();
+  getNumberIncorrect();
 }
 //determines if the guess is correct 
-bool SmartClient::isOpened(ClientFeedback& guess) {
-  if (guess==item) {
+bool SmartClient::isOpened(ClientFeedback& n, ClientFeedback& numberCorrect, ClientFeedback& numberIncorrect) {
+  if ((numberCorrect=n-1) && numberIncorrect=0) 
     return true;
 }
 //initializes a random code and prints it to the screen
 //gets a guess fron the user and prnts a response until either the lock disables 
 //or the client opens the box
-int SmartClient::openLockBox(ClientFeedback& guess) {
-
+int SmartClient::openLockBox(int secretCode) {
+  
   srand(time(0));
   for (int i = 0; i < length; i++) {
-    int item = rand() % digits; 
-    openlockbox.push_back(item); 
-    cout << item << endl; 
+    int secretCode = rand() % digits; 
+    openlockbox.push_back(secretCode); 
+    cout << secretCode << endl; 
   }
 
-  cin >> guess; 
+  clientGuess(); 
   
-  while (guess!=item) {
-    cin guess; 
-    cout << guess; 
+  while (guess!=secretCode) {
+    setNumberCorrect();
+    setNumberIncorrect();
+    cout << "The number of correct digits are: " << getNumberCorrect() << endl
+         << "The number of incorrect digits are: " << getNumberIncorrect() << endl;
+    
   }
 
 }
