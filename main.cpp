@@ -5,36 +5,8 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdlib> 
+#include "Lockbox.h"
 
-
-using namespace std;
-
-class LockBox {
-
-  private:
-
-    vector<int> lockcode;
-  
-    int length, digits; 
-
-  public:
-
-    LockBox(int n=0, int m=0);
-
-    int getLength();
-
-    int getDigits(); 
-
-    void LockCode(); 
-
-    void guess();
-
-    int  correctLocation(const LockBox &guess);
-
-    int incorrectLocation( const LockBox &guess);
-
-    //int getCode () const;
-};
 
 LockBox :: LockBox(int n, int m) : length(n), digits(m) // allow the 
 {
@@ -42,13 +14,13 @@ LockBox :: LockBox(int n, int m) : length(n), digits(m) // allow the
   digits = m;
 }
 
-int LockBox ::  getLength()
+int LockBox ::  getLength() const
 {
   return length;
 
 }
 
-int LockBox :: getDigits()
+int LockBox :: getDigits() const 
 {
  return digits; 
 }
@@ -121,7 +93,9 @@ int c2=0;//number of correct digits in wrong location
 
   return c2; 
 }
-
+vector<int> LockBox:: getCode () const{
+  return lockcode; 
+}
 
 int main () {
 LockBox  obj(4,5);

@@ -17,9 +17,9 @@ class LockBox {
 
     LockBox(int n=0, int m=0);
 
-    int getLength();
+    int getLength() const;
 
-    int getDigits(); 
+    int getDigits() const; 
 
     void LockCode(); 
 
@@ -29,6 +29,6 @@ class LockBox {
 
     int incorrectLocation( const LockBox &guess);
 
-    //int getCode () const;
+    vector<int> getCode ()const;
 };
 #endif

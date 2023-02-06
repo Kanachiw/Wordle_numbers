@@ -27,7 +27,7 @@ inc = lockode.incorrectLocation(guess);
 ostream& operator<< (ostream& out, const ClientFeedback& feedback)
 {
     // Since operator<< is a friend of the Point class, we can access Point's members directly.
-    out << "The current guess has \n correct: " << feedback.cor << endl <<"incorrect: " << feedback.inc ;
-
-}  
+    out << "The current guess has \n correct: " << feedback.cor << endl <<"incorrect: " << feedback.inc;
+    return out; 
+} 
 
