@@ -5,7 +5,8 @@
 #include <cstdlib> 
 #include <vector>
 #include <iomanip> 
-LockBox :: LockBox(int n, int m) : length(n), digits(m) // allow the 
+
+LockBox::LockBox(int n, int m): length(n), digits(m) // allow the 
 {
   length= n;
   digits = m;

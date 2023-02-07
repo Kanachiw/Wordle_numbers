@@ -5,6 +5,7 @@
 
 
 int main() {
+cout<<"_____________________PART A_________________"<<endl;
 cout<< "Welcome to a Lockbox To beigin you have to\
 enter the length of the lockcode and the range of \
 which you want it to be randomly geneated "<<endl;

@@ -9,7 +9,7 @@
 
 int main(){
     
-    
+    cout<<"_____________________PART B_________________"<<endl;
     SmartClient sc;  
     sc.openLockBox(); 
     
