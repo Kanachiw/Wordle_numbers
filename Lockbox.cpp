@@ -8,7 +8,7 @@
 
 LockBox::LockBox(int n, int m): length(n), digits(m) // allow the 
 {
-  length= n;
+  length = n;
   digits = m;
 }
 
@@ -27,7 +27,7 @@ int LockBox :: getDigits() const
 void LockBox :: LockCode() {
   
      //initializes a vector of integer 
-    srand(time(0));
+    srand( time(0) );
     for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
       int item = rand() % digits;
       lockcode.push_back(item); // generate each individal digit from the range of [0,m-1]
@@ -41,9 +41,9 @@ void LockBox :: guess() {
   int num; 
   
      for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
-      cout<<"enter digit "<<i<<" from 0: [" <<length<<"-1]"<<endl;;
+      cout << "enter digit " << i << " from 0: [" << length << "-1]" << endl;;
       cin >> num; 
-      if (num > (digits-1)){
+      if (num > (digits - 1)){
         throw "range error"; 
       }
       lockcode.push_back(num); // generate each individal digit from the range of [0,m-1]
@@ -55,9 +55,9 @@ void LockBox :: guess() {
 
 
 
-int LockBox :: correctLocation(const LockBox &guess) {
+int LockBox::correctLocation(const LockBox &guess) {
 
-  int c1= 0;// couts the  number of correct digits 
+  int c1 = 0;// couts the  number of correct digits 
 
   for (int i = 0; i < length; i++) {
 
@@ -69,7 +69,7 @@ int LockBox :: correctLocation(const LockBox &guess) {
   return c1; 
 }
 
-int LockBox:: incorrectLocation( const LockBox &guess){
+int LockBox::incorrectLocation( const LockBox &guess){
 int c2=0;//number of correct digits in wrong location
 
  //create a vecotor of unique guesses 
@@ -91,14 +91,14 @@ int c2=0;//number of correct digits in wrong location
 
   return c2; 
 }
-vector<int> LockBox:: getCode () const{
+vector<int> LockBox::getCode () const{
   return lockcode;
 }
 
 void LockBox:: printLockode(){
-    cout<< "The Lockode is :";
+    cout << "The Lockode is :";
 for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
-            cout<<lockcode[i];
+            cout <<lockcode[i];
         }
-    cout<<endl; 
+    cout << endl; 
 }

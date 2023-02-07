@@ -15,7 +15,7 @@ class LockBox {
 
   public:
 
-    LockBox(int n=0, int m=0);
+    LockBox(int n = 0, int m = 0);
 
     int getLength() const;
 

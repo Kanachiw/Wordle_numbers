@@ -19,7 +19,7 @@ class ClientFeedback{
    
     friend bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2 );
 
-    friend ostream& operator<< (ostream& out, const ClientFeedback &feedback );
+    friend ostream& operator<<(ostream& out, const ClientFeedback &feedback );
 
 
 };

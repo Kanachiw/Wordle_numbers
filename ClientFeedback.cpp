@@ -13,7 +13,7 @@ bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2 ){ //first
     return false; 
 }
 
-ClientFeedback :: ClientFeedback(int c, int i): cor(c), inc(i)
+ClientFeedback::ClientFeedback(int c, int i): cor(c), inc(i)
 {
   cor=c; 
   inc=i; 
@@ -27,15 +27,14 @@ return inc;
 int ClientFeedback::get_correct(){
 return cor; 
 }
-void ClientFeedback:: set_values(LockBox &guess, LockBox& lockode){
+void ClientFeedback::set_values(LockBox &guess, LockBox &lockode){
 cor = lockode.correctLocation(guess); 
 inc = lockode.incorrectLocation(guess); 
 }
 
-ostream& operator<< (ostream& out, const ClientFeedback& feedback)
+ostream& operator<<(ostream& out, const ClientFeedback &feedback)
 {
-    // Since operator<< is a friend of the Point class, we can access Point's members directly.
-    out << "The current guess has\ncorrect: " << feedback.cor << endl <<"incorrect: " << feedback.inc;
+    out << "The current guess has\ncorrect: " << feedback.cor << endl << "incorrect: " << feedback.inc;
     return out; 
 } 
 
