@@ -1,13 +1,10 @@
-#include <iostream>
-#include <vector>
-#include <iomanip> 
+
 #include <stdexcept>
 #include <iostream>
 #include <algorithm>
 #include <cstdlib> 
-#include "Lockbox.h"
-
-
+#include <vector>
+#include <iomanip> 
 LockBox :: LockBox(int n, int m) : length(n), digits(m) // allow the 
 {
   length= n;
@@ -33,7 +30,6 @@ void LockBox :: LockCode() {
     for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
       int item = rand() % digits;
       lockcode.push_back(item); // generate each individal digit from the range of [0,m-1]
-      cout<<item<<endl;
     }
 }
 
@@ -71,6 +67,7 @@ int LockBox :: correctLocation(const LockBox &guess) {
   }
   return c1; 
 }
+
 int LockBox:: incorrectLocation( const LockBox &guess){
 int c2=0;//number of correct digits in wrong location
 
@@ -94,17 +91,13 @@ int c2=0;//number of correct digits in wrong location
   return c2; 
 }
 vector<int> LockBox:: getCode () const{
-  return lockcode; 
+  return lockcode;
 }
 
-int main () {
-LockBox  obj(4,5);
-int length = obj.getLength();
-int digits = obj.getDigits();
-obj.LockCode();
-LockBox obj2(length, digits); 
-obj2.guess();
-cout <<"correct location " << obj.correctLocation(obj2)<<endl;
-cout<<"incorrect location "<< obj.incorrectLocation(obj2)<<endl;
-  
+void LockBox:: printLockode(){
+    cout<< "The Lockode is :";
+for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
+            cout<<lockcode[i];
+        }
+    cout<<endl; 
 }

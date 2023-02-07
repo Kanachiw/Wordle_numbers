@@ -12,16 +12,18 @@ class ClientFeedback{
     
     public:
     
-    ClientFeedback(int cor = 0, int inc = 0 );
+    ClientFeedback(int c = 0, int i = 0 );
     int get_incorrect();
     int get_correct(); 
-    void set_correct(LockBox &guess, LockBox &lockode); 
-    void set_incorrect(LockBox &guess, LockBox &lockode);
-    friend bool operator==( const ClientFeedback &cf1 , const ClientFeedback &cf2);
+    void set_values(LockBox &guess, LockBox &lockode); 
+   
+    friend bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2 );
 
     friend ostream& operator<< (ostream& out, const ClientFeedback &feedback );
 
 
 };
+
+#include "ClientFeedback.cpp" 
 
 #endif 

@@ -23,6 +23,8 @@ class LockBox {
 
     void LockCode(); 
 
+    void printLockode(); 
+    
     void guess();
 
     int  correctLocation(const LockBox &guess);
@@ -31,4 +33,5 @@ class LockBox {
 
     vector<int> getCode ()const;
 };
+ #include "Lockbox.cpp"
 #endif
