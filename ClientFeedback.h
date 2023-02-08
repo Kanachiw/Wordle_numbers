@@ -1,3 +1,11 @@
+/*********************************************************
+* author           : Rajani Tabor and Kanachi Weli
+* date             : February 8th, 2023
+* file name        : ClientFeedback.h
+* purpose          : class that stores the number of correct/incorrect
+                        digits response to a guess
+***********************************************************/
+
 #ifndef CLIENT_FEEDBACK_CLASS
 #define CLIENT_FEEDBACK_CLASS
 #include <iostream>
@@ -5,8 +13,7 @@
 #include "Lockbox.h"
 using namespace std;
 
-/* CilentFeedback class that stores the number of correct/incorrect
-digits response to a guess*/
+
 class ClientFeedback{
     private:
     /* class data members*/

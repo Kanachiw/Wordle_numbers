@@ -1,3 +1,10 @@
+/**************************************************************
+* author           : Rajani Tabor and Kanachi Weli
+* date             : February 8th, 2023
+* file name        : ClientFeedback.cpp
+* purpose          : Implementation of the ClientFeedback class
+***************************************************************/
+
 #include <iostream>
 #include <algorithm>
 #include <cstdlib> 
