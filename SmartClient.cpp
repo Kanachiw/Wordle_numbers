@@ -106,24 +106,24 @@
     * @post displays to the screen whether or not the client has guessed the right code
     */
     void SmartClient::openLockBox(){
-        /*uses a lockbox object to randomize the secret code*/
+        /*Uses a lockbox object to randomize the secret code*/
        lbObj.LockCode();
 
-       /*calls the printCode function to print secret code to the screen*/
+       /*Calls the printCode function to print secret code to the screen*/
        printCode(); 
 
-       /*gets the client's guess at the code*/
+       /*Gets the client's guess at the code*/
        ClientFeedback ans;
        do{
 
-       /*iteratively inputs the guess via the ClientGuess() function 
-       and outputs the response via the getFeedback() function*/
+       /*Iteratively inputs the guess via the ClientGuess() function 
+            and outputs the response via the getFeedback() function*/
        cout << endl << "Please guess the code below" << endl; 
        LockBox a = clientGuess();
       
        ans = getFeedback(a); 
-       /* uses the isOpened() function to determine whether the box has been
-       opened and thus the while loop should end*/
+       /* Uses the isOpened() function to determine whether the box has been
+            opened and thus the while loop should end*/
        if (isOpened(ans)){
         cout << "Congrats you opened the box" << endl; 
        }

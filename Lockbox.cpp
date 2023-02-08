@@ -1,3 +1,9 @@
+/*******************************************************
+* author           : Rajani Tabor and Kanachi Weli
+* date             : February 8th, 2023
+* file name        : Lockbox.cpp
+* purpose          : Implementation of the LockBox class
+*******************************************************/
 
 #include <stdexcept>
 #include <iostream>
