@@ -139,7 +139,7 @@ vector printing out each position
 void LockBox::printLockode(){
     cout << "The Lockode is :";
 
-    // iterates thrroght the vector code and prints each vector position 
+    // iterates through the vector code and prints each vector position 
 for (int i = 0; i < length; i++){ // create a loop to create a vector size of n 
             cout <<lockcode[i];
         }
