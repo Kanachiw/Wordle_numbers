@@ -42,14 +42,14 @@ class ClientFeedback{
     * @param lockcode - randomly generated secret code */
     void set_values(LockBox &guess, LockBox &lockode); 
    
-    /* Overloaded operator == that compares responses to guess and returns 
+    /* A global Overloaded operator == that compares responses to guess and returns 
             true if they're equal
     * @param cf1 - ClientFeedback object 1
     * @param cf2 - ClientFeedback object 2 
     */
     friend bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2 );
 
-    /* Overloaded operator << that prints a CLientFeedback response
+    /* A Global Overloaded operator << that prints a CLientFeedback response
     * @param feedback - object representing the correct and incorrect digits
     */
     friend ostream& operator<<(ostream& out, const ClientFeedback &feedback );
