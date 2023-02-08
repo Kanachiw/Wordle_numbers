@@ -44,7 +44,7 @@ public:
     /* Function that is passed a guess code and returns a ClientFeedback object
     * @param guess - client's guess which is a lockbox object 
     * @return A ClientFeedback object representing correct and incorrect value of
-    the guess code to the correct value 
+             the guess code to the correct value 
     */
     ClientFeedback getFeedback(LockBox &guess);  
 
