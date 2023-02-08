@@ -32,8 +32,23 @@ digits are correct and how many digits are correct but in the
 wrong location, using lockbox object*/
     LockBox SmartClient::clientGuess() {
         LockBox guessCode(lbObj.getLength(), lbObj.getDigits());
-        
+        bool success = false; 
+        while(!success)
+        {
+        try
+        {
         guessCode.guess(); 
+        cout<< "For your guess Lockbox "; 
+        guessCode.printLockode(); 
+        success = true; 
+        }
+        catch(const exception& e)
+        {
+        cerr << e.what() << '\n';
+        cout<<"Please guess again"<<endl; 
+        }
+        }
+        
         return guessCode; 
 
     } 

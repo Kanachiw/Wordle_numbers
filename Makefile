@@ -1,12 +1,14 @@
 
-partB: partB.o  SmartClient.h 
+all: partA partB
+
+partB: partB.o  SmartClient.h ClientFeedback.h Lockbox.h
 	g++ partB.o -o partB
 	
 partA: partA.o Lockbox.h
 	g++ partA.o -o partA
 
 
-partB.o: partB.cpp SmartClient.h 
+partB.o: partB.cpp SmartClient.h ClientFeedback.h Lockbox.h
 	g++ -c partB.cpp
 
 partA.o: partA.cpp Lockbox.h 
