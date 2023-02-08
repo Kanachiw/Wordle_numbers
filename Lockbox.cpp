@@ -76,7 +76,11 @@ void LockBox :: guess() {
 }
 
 
-
+/*create an operation find the amount of 
+    guesses in the right location 
+    @param takes in a Lockbox object code
+    (can be a guess or another lockcode )
+    @return the amount in the correct location */
 int LockBox::correctLocation(const LockBox &code) {
 
   int c1 = 0;/* creats a counter variable thats increments 
