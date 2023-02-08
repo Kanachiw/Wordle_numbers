@@ -16,7 +16,10 @@ private:
     /*lockbox object is a data member of this class*/
     LockBox lbObj;
 public: 
-
+    
+     /* Create an object with integers with a default lockcode 
+    * @post a new SmartClient object is created 
+    */
     SmartClient(); 
 
     /* Create an object with integers n and m
@@ -26,10 +29,10 @@ public:
     */
     SmartClient(int n, int m ); 
 
-    /* Function to print out secret lock code*/
+    /* Function to print out secret lock code in the lockbox */
     void printCode();
 
-    /* Function to read a guess from the keyboard
+    /* Function to read a lockcode from the keyboard
             and return a ClientFeedback object 
     * @pre digits provided by client must be within range of m-1.
             if they're not, throw range error
@@ -38,8 +41,9 @@ public:
     LockBox clientGuess(); 
 
     /* Function that is passed a guess code and returns a ClientFeedback object
-    * @param guess - client's guess at secret code
-    * @return A ClientFeedback object representing the guess
+    * @param guess - client's guess which is a lockbox object 
+    * @return A ClientFeedback object representing correct and incorrect value of
+    the guess code to the correct value 
     */
     ClientFeedback getFeedback(LockBox &guess);  
 
@@ -55,8 +59,7 @@ public:
             iteratively get a guess from user, and print a ClientFeedback 
             object representing the guess until the code has been guessed 
             correctly
-    * @post prints the secret code to the screen
-    * @return A ClientFeedback object representing the guess        
+    * @post prints the lockode/guesses and directs the client experience
     */
     void openLockBox(); 
 
