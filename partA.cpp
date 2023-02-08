@@ -3,10 +3,12 @@
 #include "Lockbox.h"
 
 
-/* main program that creates a Lockbox object, generates a lock code,
+
+int main() {
+/* Part A : main program that creates a Lockbox object, generates a lock code,
 and calls functions correctLocation() and incorrectLocation
 in order to provide a response to the guess*/
-int main() {
+
 cout <<"_____________________PART A_________________" << endl;
 cout << "Welcome to a Lockbox To beigin you have to\
 enter the length of the lockcode and the range of \
@@ -25,12 +27,31 @@ obj.LockCode();
 /* lockbox object that prints the secret code*/
 obj.printLockode(); 
 LockBox obj2(l, d); 
-obj2.guess();
+
+// creates a try statement for error handling when the wrong value is entered for the guess 
+bool success = false;
+while(!success)
+{
+try
+{
+   obj2.guess();
+   cout<< "For your guess Lockbox "; 
+   obj2.printLockode(); 
+   success = true; 
+}
+catch(const exception& e)
+{
+    cerr << e.what() << '\n';
+    cout<<"Please guess again"<<endl; 
+}
+
+}
+
+
 
 /*lockbox objects that print the number of digits in the correct location
 and the number of correct digits in the incorrect location*/
 cout << "correct location " << obj.correctLocation(obj2) << endl;
 cout << "incorrect location " << obj.incorrectLocation(obj2) << endl;
-  
 }
 
