@@ -16,7 +16,6 @@ using namespace std;
 
 class ClientFeedback{
     private:
-    /* class data members*/
      int cor, inc; 
     
     public:
@@ -60,4 +59,4 @@ class ClientFeedback{
 
 #include "ClientFeedback.cpp" 
 
-#endif 
+#endif
