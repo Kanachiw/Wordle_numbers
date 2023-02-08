@@ -46,13 +46,19 @@ class ClientFeedback{
             true if they're equal
     * @param cf1 - ClientFeedback object 1
     * @param cf2 - ClientFeedback object 2 
+    * @return true if the clientfeeback of the lockode is the same as the cliet feedback of the gues 
+    the client feedback of the lockode would have all correct and 0 incorrects. 
+    This is done to ensure we are not accessing the private members of the lockcode class
     */
-    friend bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2 );
+    friend bool operator==(const ClientFeedback &cf1 , const ClientFeedback &cf2);
 
     /* A Global Overloaded operator << that prints a CLientFeedback response
-    * @param feedback - object representing the correct and incorrect digits
+    * @param ostream out method 
+    * @param Client Feedback 
+    * @return returns the cout and print the cfleedback response
+    
     */
-    friend ostream& operator<<(ostream& out, const ClientFeedback &feedback );
+    friend ostream& operator<<(ostream& out, const ClientFeedback &feedback);
 
 
 };
