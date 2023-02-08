@@ -29,7 +29,8 @@ public:
     */
     SmartClient(int n, int m ); 
 
-    /* Function to print out secret lock code in the lockbox */
+    /* Function to print out secret lock code in the lockbox 
+    @post prints the values in the lockcode object*/
     void printCode();
 
     /* Function to read a lockcode from the keyboard
