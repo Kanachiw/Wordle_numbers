@@ -1,10 +1,9 @@
-/*********************************************************
+/************************************************************************
 * author           : Rajani Tabor and Kanachi Weli
 * date             : February 8th, 2023
-* file name        : SmartClient.h
-* purpose          : desription of class that handles
-                        the playing of the lock code game
-***********************************************************/
+* file name        : SmartClient.h - SmartClient header file
+* purpose          : Class that handles the playing of the lock code game
+************************************************************************/
 
 #ifndef SMART_CLIENT_CLASS
 #define SMART_CLIENT_CLASS
@@ -39,12 +38,15 @@ public:
     LockBox clientGuess(); 
 
     /* Function that is passed a guess code and returns a ClientFeedback object
+    * @param guess - client's guess at secret code
     * @return A ClientFeedback object representing the guess
     */
     ClientFeedback getFeedback(LockBox &guess);  
 
     /* Function that is passed a ClientFeedback object and determines if the 
-            secret code has been guessed
+             secret code has been guessed
+    * @param cfb - ClientFeedback object representing the response to a 
+             client's guess               
     * @return true if secret code has been correctly guessed       
     */
     bool isOpened(const ClientFeedback &cfb);
@@ -53,6 +55,7 @@ public:
             iteratively get a guess from user, and print a ClientFeedback 
             object representing the guess until the code has been guessed 
             correctly
+    * @post prints the secret code to the screen
     * @return A ClientFeedback object representing the guess        
     */
     void openLockBox(); 
