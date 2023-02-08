@@ -3,11 +3,13 @@
 
 #include "ClientFeedback.h"
 
-
+/*Smartclient class that handles the game play*/
 class SmartClient{
 private: 
+    /*lockbox object is a data member of this class*/
     LockBox lbObj;
 public: 
+/*SmartClient functions necessary for gameplay*/
     SmartClient(); 
     SmartClient(int n, int m ); 
     void printCode();

@@ -5,19 +5,20 @@
 #include <cstdlib> 
 #include <vector>
 #include <iomanip> 
-
+/*LockBox constructor initializing integers for length and range of 
+digits for the guess/secret code*/
 LockBox::LockBox(int n, int m): length(n), digits(m) // allow the 
 {
   length = n;
   digits = m;
 }
-
+/*returns the length of the guess/secret code*/
 int LockBox ::  getLength() const
 {
   return length;
 
 }
-
+/* returns the range of digits for the guess/secret code*/
 int LockBox :: getDigits() const 
 {
  return digits; 

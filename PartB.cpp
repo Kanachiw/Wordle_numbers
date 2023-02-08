@@ -6,7 +6,8 @@
 #include <stdexcept>
 #include "SmartClient.h"
 
-
+/* main function thay calls a SmartClient object and also calls 
+the OpenLockBox() function which takes client thru the game */
 int main(){
     
     cout <<"_____________________PART B_________________"<<endl;

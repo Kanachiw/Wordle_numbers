@@ -5,9 +5,11 @@
 #include "Lockbox.h"
 using namespace std;
 
-
+/* CilentFeedback class that stores the number of correct/incorrect
+digits response to a guess*/
 class ClientFeedback{
     private:
+    /* class data members*/
      int cor, inc; 
     
     public:

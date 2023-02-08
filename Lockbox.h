@@ -4,7 +4,8 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-
+/*class LockBox that stores a secret lock code as a vector
+and contains different functions that analyze guesses at that lock code*/
 class LockBox {
 
   private:
