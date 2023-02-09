@@ -1,3 +1,12 @@
+/**************************************************************************
+* author           : Rajani Tabor and Kanachi Weli
+* date             : February 8th, 2023
+* file name        : PartB.cpp
+* purpose          : Main function that calls a SmartClient object and the 
+                        OpenLockBox() function which takes a client through
+                        the game
+**************************************************************************/
+
 #include <iostream>
 #include <algorithm>
 #include <cstdlib> 
@@ -6,8 +15,6 @@
 #include <stdexcept>
 #include "SmartClient.h"
 
-/* main function thay calls a SmartClient object and also calls 
-the OpenLockBox() function which takes client thru the game */
 int main(){
     
     cout <<"_____________________PART B_________________"<<endl;

@@ -1,3 +1,10 @@
+/****************************************************************
+* author           : Rajani Tabor and Kanachi Weli
+* date             : February 8th, 2023
+* file name        : Lockbox.h - LockBox class header file
+* purpose          : LockBox class stores a lock code as a vector
+****************************************************************/
+
 #ifndef LOCKBOX_CLASS
 #define LOCKBOX_CLASS
 
