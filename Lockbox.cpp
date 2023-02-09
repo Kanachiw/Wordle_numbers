@@ -11,6 +11,7 @@
 #include <cstdlib> 
 #include <vector>
 #include <iomanip> 
+#include <string>
 
 
 /*
@@ -72,7 +73,7 @@ void LockBox :: guess() {
       cout << "enter digit " << i << " from 0 : " << digits-1 << endl;;
       cin >> num; // takes in each position in thse vector 
       if (num > (digits - 1)){
-       throw out_of_range("ERROR: Not within range! (you entered a value greater or Equal to " + to_string(digits) +")\n"); //ensure that digits are not greater than the range 
+       throw out_of_range("ERROR: Not within range! (you entered a value greater or Equal to max range")\n"); //ensure that digits are not greater than the range 
       }
       lockcode.push_back(num); // generate each individal digit from the range of [0,m-1]
   
