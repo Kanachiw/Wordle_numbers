@@ -8,8 +8,8 @@ partA: partA.o Lockbox.h
 	g++ partA.o -o partA
 
 
-partB.o: partB.cpp SmartClient.h ClientFeedback.h Lockbox.h
-	g++ -c partB.cpp
+partB.o: PartB.cpp SmartClient.h ClientFeedback.h Lockbox.h
+	g++ -c PartB.cpp
 
 partA.o: partA.cpp Lockbox.h 
 	g++ -c partA.cpp
